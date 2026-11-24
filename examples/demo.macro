@@ -1,0 +1,95 @@
+{
+  "format": "macro",
+  "version": 1,
+  "id": "demo0001",
+  "name": "Demo Macro",
+  "settings": {
+    "repeat_workflow": 1,
+    "step_delay_ms": 100,
+    "failsafe": true
+  },
+  "actions": [
+    {
+      "id": "a1",
+      "type": "wait",
+      "name": "Countdown",
+      "enabled": true,
+      "params": { "duration_ms": 2000 }
+    },
+    {
+      "id": "a2",
+      "type": "type_text",
+      "name": "",
+      "enabled": true,
+      "params": { "text": "Xin chào Macro!", "interval_ms": 40 }
+    },
+    {
+      "id": "a3",
+      "type": "press_key",
+      "name": "",
+      "enabled": true,
+      "params": {
+        "key": "enter", "ctrl": false, "shift": false, "alt": false,
+        "repeat": 1, "interval_ms": 50
+      }
+    },
+    {
+      "id": "a4",
+      "type": "loop",
+      "name": "Move around",
+      "enabled": true,
+      "params": { "times": 3, "iteration_delay_ms": 200 },
+      "children": [
+        {
+          "id": "a5",
+          "type": "move_mouse",
+          "name": "",
+          "enabled": true,
+          "params": { "x": 400, "y": 300, "duration_ms": 300 }
+        },
+        {
+          "id": "a6",
+          "type": "wait",
+          "name": "",
+          "enabled": true,
+          "params": { "duration_ms": 300 }
+        },
+        {
+          "id": "a7",
+          "type": "move_mouse",
+          "name": "",
+          "enabled": true,
+          "params": { "x": 800, "y": 500, "duration_ms": 300 }
+        },
+        {
+          "id": "a8",
+          "type": "wait",
+          "name": "",
+          "enabled": true,
+          "params": { "duration_ms": 300 }
+        }
+      ]
+    },
+    {
+      "id": "a9",
+      "type": "click",
+      "name": "",
+      "enabled": true,
+      "params": { "x": 500, "y": 400, "clicks": 1, "button": "left" }
+    },
+    {
+      "id": "a10",
+      "type": "find_image",
+      "name": "Wait for an image (optional)",
+      "enabled": false,
+      "params": {
+        "image": "C:\\path\\to\\target.png",
+        "confidence": 0.9,
+        "timeout_ms": 5000,
+        "not_found": "continue",
+        "use_region": false,
+        "region_x": 0, "region_y": 0, "region_w": 0, "region_h": 0
+      }
+    }
+  ]
+}
